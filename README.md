@@ -11,6 +11,8 @@ API de gerenciamento de tarefas (To-Do) com autenticação JWT.
 - Documentação automática com Swagger
 
 ---
+ API Docs (Swagger)
+![Swagger](assets/swagger.jpg)
 
 ## 🛠️ Tecnologias
 
