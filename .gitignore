@@ -1,0 +1,22 @@
+# Arquivos do ambiente
+.env
+.env.*
+
+#Python
+__pycache__/
+*.pyc
+
+# Virtualenv
+venv/
+
+# Banco de dados
+*.sqlite3
+*.db
+
+# Ide
+.vscode/
+.idea/
+
+# Os
+.DS_Store
+thumbs.db
