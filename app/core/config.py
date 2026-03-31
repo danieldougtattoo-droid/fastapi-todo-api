@@ -3,9 +3,9 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-# Carrega explicitamente o .env da pasta app (independente do cwd do processo).
-BASE_DIR = Path(__file__).resolve().parent.parent
-env_path = BASE_DIR / ".env"
+# Carrega explicitamente o .env da raiz do projeto.
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+env_path = PROJECT_ROOT / ".env"
 load_dotenv(env_path)
 
 SECRET_KEY = os.getenv("SECRET_KEY")
