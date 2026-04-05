@@ -1,4 +1,5 @@
 from pydantic import BaseModel, EmailStr, constr
+from pydantic import field_validator
 
 class UserResponse(BaseModel):
     id: int
@@ -6,15 +7,19 @@ class UserResponse(BaseModel):
 
 class UserCreate(BaseModel):
     email: EmailStr
-    password: constr(min_length=6, max_length=72)
+    password: str
 
-    class Config:
-       from_attributes = True
+@field_validator('password')
+def validate_password(cls, v):
+    if len(v) < 6:
+        raise ValueError('mínimo 6 caracteres')
+    if len(v.encode('utf-8')) > 72:
+        raise ValueError('máximo 72 bytes')
+    return v
 
 class UserLogin(BaseModel):
     email: EmailStr
-    password: constr(min_length=6, max_length=72)
-        # Configuração para que o Pydantic modele os dados do banco de dados
+    password: str
 
 class TokenResponse(BaseModel):
     access_token: str
@@ -23,7 +28,3 @@ class TokenResponse(BaseModel):
 
 class RefreshRequest(BaseModel):
     refresh_token: str
-
-class AccessTokenResponse(BaseModel):
-    access_token: str
-    token_type: str = "bearer"
