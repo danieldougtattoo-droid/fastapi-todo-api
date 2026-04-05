@@ -6,7 +6,6 @@ python-jose[cryptography]
 python-multipart
 psycopg2-binary
 python-dotenv
-bccrypt
 pydantic
 pydantic-settings
 email-validator
