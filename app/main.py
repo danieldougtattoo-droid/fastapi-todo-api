@@ -9,7 +9,8 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://react-dashboard-auth-iota.vercel.app"],
+    allow_origins=["http://localhost:3000", "https://react-dashboard-auth-iota.vercel.app",
+                   "https://react-dashboard-auth-agiaor7sa-danieldougtattoo-droids-projects.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
