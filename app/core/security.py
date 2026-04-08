@@ -37,9 +37,7 @@ def create_refresh_token(data: dict):
     expire = datetime.now(timezone.utc) + timedelta(days=REFRESH_TOKEN_EXPIRE_DAYS)
     to_encode.update({"exp": expire, "type": "refresh"})
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
-    if payload.get("type") != "refresh":
-        raise HTTPException(status_code=401, detail="Token inválido")
-
+    
 def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
     credentials_exception = HTTPException(
         status_code=401,
